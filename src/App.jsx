@@ -6,6 +6,7 @@ let currentyear = 2025;
 let mybirthyear = 2006;
 let country = "Morocco";
 let city = "Casablanca"
+const languages = ["Arabic" , "French" , "English"]
 
 function Address() {
   return <h4> I live in {country} exactly in {city} </h4>
@@ -13,6 +14,16 @@ function Address() {
 
 function Prop({job}){
   return <h5>I'm a Full Stack {job}</h5>
+}
+
+function List({languages}) {
+   return <ul>
+            {languages.map((language) => (
+              <li>
+                {language}
+              </li>
+            ))}
+          </ul>
 }
 
 function Hobbies({hobbie}){
@@ -25,6 +36,7 @@ function App() {
           <Address /> 
           <Prop job ="Devlopper"/> 
           <Hobbies hobbie="coding"/>
+          <List languages={languages}/>
         </h1>
     ) 
 }
