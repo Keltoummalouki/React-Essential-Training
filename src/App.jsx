@@ -5,8 +5,15 @@ let lastname = "Malouki";
 let currentyear = 2025;
 let mybirthyear = 2006;
 let country = "Morocco";
-let city = "Casablanca"
-const languages = ["Arabic" , "French" , "English"]
+let city = "Casablanca";
+
+const languages = ["Arabic" , "French" , "English"];
+
+const languageObject = languages.map((language, i) => ({
+  id: i,
+  title: language
+}));
+
 
 function Address() {
   return <h4> I live in {country} exactly in {city} </h4>
@@ -17,10 +24,10 @@ function Prop({job}){
 }
 
 function List({languages}) {
-   return <ul>
+    return <ul>
             {languages.map((language) => (
-              <li>
-                {language}
+              <li key={language.id} style={{listStyleType: "none"}}>
+                {language.title}
               </li>
             ))}
           </ul>
@@ -36,7 +43,7 @@ function App() {
           <Address /> 
           <Prop job ="Devlopper"/> 
           <Hobbies hobbie="coding"/>
-          <List languages={languages}/>
+          <List languages={languageObject}/>
         </h1>
     ) 
 }
