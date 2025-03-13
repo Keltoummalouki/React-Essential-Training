@@ -1,4 +1,5 @@
-import './App.css'
+import './App.css';
+import brikingbad from './assets/brikingbad.png';
 
 let firstname = "Keltoum";
 let lastname = "Malouki";
@@ -24,13 +25,18 @@ function Prop({job}){
 }
 
 function List({languages}) {
-    return <ul>
-            {languages.map((language) => (
-              <li key={language.id} style={{listStyleType: "none"}}>
-                {language.title}
-              </li>
-            ))}
-          </ul>
+    return (
+    <main>
+      <img src="{brikingbad}" height={200} width={200} alt="brikingbad" />
+      <ul>
+        {languages.map((language) => (
+          <li key={language.id} style={{listStyleType: "none"}}>
+            {language.title}
+          </li>
+        ))}
+      </ul>
+    </main>
+  )
 }
 
 function Hobbies({hobbie}){
